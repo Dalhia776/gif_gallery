@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="img-responsive">
+  <%= link_to image_tag(@gif.url) %>
+</div>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gif.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @gif.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_gif_path(@gif) %> |
+<%= link_to 'Back', gifs_path %>
