@@ -1,6 +1,6 @@
 class GifsController < ApplicationController
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
-  validates_format_of :image_url, :with => %r{\.(gif)$}i, :message => "We only share things in .gif format"
+  # validates_format_of :image_url, :with => %r{\.(gif)$}i, :message => "We only share things in .gif format"
 
 
   # GET /gifs
@@ -35,6 +35,7 @@ class GifsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @gif.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -49,6 +50,7 @@ class GifsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @gif.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -60,6 +62,7 @@ class GifsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to gifs_url, notice: 'Gif was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {}
     end
   end
 

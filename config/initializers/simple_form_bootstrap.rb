@@ -133,4 +133,5 @@ SimpleForm.setup do |config|
     file: :vertical_file_input,
     boolean: :vertical_boolean,
   }
+
 end
