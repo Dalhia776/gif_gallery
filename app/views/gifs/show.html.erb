@@ -1,24 +1,18 @@
-<p id="notice"><%= notice %></p>
-
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Bless the Saints!</h4>
+    </div>
+      <div class="modal-body">
+        <div class="container-fluid">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-              <div class="gif_image">
-                <%= link_to image_tag(gif.url) %>
-              </div>
-
-                <p>
-                  <strong>Title:</strong>
-                  <%= @gif.title %>
-                </p>
-
-                <p>
-                  <strong>Url:</strong>
-                  <%= @gif.url %>
-                </p>
-                <p>Submitted by <%= gif.user.email %> at <span class="time"><%= time_ago_in_words(gif.created_at) %></span></p>
-                <div class="btn-group pull-right">
-                  <p><%= link_to 'Edit', edit_gif_path(gif) %></p> |
-                  <p><%= link_to 'Destroy', gif, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                </div>
+          <div class="col-xs-12">
+            <% if gif.file.blank? %>
+            <%= link_to image_tag(gif.url, :class => "img-responsive center-block"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
+            <% else %>
+            <%= link_to image_tag(attachment_url(@gif, :file), :class => "img-responsive center-block"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
           </div>
         </div>
+        </div>
+      </div>
+     <div class="modal-footer">
+     </div>

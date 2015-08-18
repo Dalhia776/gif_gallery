@@ -1,18 +1,18 @@
-<%= simple_form_for(@gif) do |f| %>
-  <% if @gif.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
-
-      <ul>
-      <% @gif.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="myModalLabel">Giffy Goodness</h4>
+</div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= simple_form_for(@gif, remote: true) do |f| %>
+              <%= f.input :url%>
+              <h6><em>or</em></h6>
+              <%= form.attachment_field :file_id, direct: true %>
+              <%= f.submit "Bingo!" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-    <%= f.input :title %>
-    <%= f.input :url%>
-    <%= f.submit %>
-
-<% end %>
+  </div>
