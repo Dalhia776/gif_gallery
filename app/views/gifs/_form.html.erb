@@ -1,18 +1,18 @@
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title" id="myModalLabel">Giffy Goodness</h4>
+  <h4 class="modal-title" id="myModalLabel">The Wicked</h4>
 </div>
-  <div class="modal-body">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12">
-          <%= simple_form_for(@gif, remote: true) do |f| %>
-              <%= f.input :url%>
-              <h6><em>or</em></h6>
-              <%= form.attachment_field :file_id, direct: true %>
-              <%= f.submit "Bingo!" %>
+<div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= simple_form_for(@gif, remote: true) do |f| %>
+          <%= f.input :url%>
+          <h6><em>or</em></h6>
+          <%= f.attachment_field :file, direct: true %>
+          <%= f.submit "Bingo!" %>
           <% end %>
-        </div>
       </div>
     </div>
   </div>
+</div>
