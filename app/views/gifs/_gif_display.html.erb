@@ -1,16 +1,13 @@
-<% @gifs.each_slice(4) do |gif| %>
+<% @gifs.each_slice(4) do |row| %>
   <div class="row">
-    <% @gifs.each do |gif| %>
+    <% row.each do |gif| %>
       <div class="col-xs-3">
-        <% if gif.file_id.blank? %>
-        <%= link_to image_tag(gif.url, :class => "img-responsive center-block"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
+        <% if gif.file.blank? %>
+          <%= link_to image_tag(gif.url, :class => "img-responsive"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
         <% else %>
-        <%= link_to image_tag(attachment_url(@gif, :file), :class => "img-responsive center-block"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
+          <%= link_to image_tag(attachment_url(gif, :file), :class => "img-responsive"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
         <% end %>
       </div>
-        <pclass="text-center"><%= gif.url %></p>
-        <p class="text-center">Submitted by <%= gif.user_id %> at <span class="time"><%= time_ago_in_words(gif.created_at) %></span></p>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 <%end %>

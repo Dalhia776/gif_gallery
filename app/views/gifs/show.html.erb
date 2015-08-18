@@ -6,10 +6,12 @@
         <div class="container-fluid">
         <div class="row">
           <div class="col-xs-12">
-            <% if gif.file.blank? %>
-            <%= link_to image_tag(gif.url, :class => "img-responsive center-block"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
+            <% if @gif.file.blank? %>
+            <%= link_to image_tag(@gif.url, :class => "img-responsive center-block"), gif_path(@gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
             <% else %>
-            <%= link_to image_tag(attachment_url(@gif, :file), :class => "img-responsive center-block"), gif_path(gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
+            <%= link_to image_tag(attachment_url(@gif, :file), :class => "img-responsive center-block"), gif_path(@gif), "data-toggle" => "modal", "data-target" => "#defaultModal" %>
+            <% end %>
+            <%= render partial: "stats" %>
           </div>
         </div>
         </div>

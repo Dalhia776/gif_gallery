@@ -23,9 +23,7 @@ class GifsController < ApplicationController
   # GET /gifs/new
   def new
     @gif = Gif.new
-    respond_to do |format|
-      format.js {}
-    end
+    render layout: false
   end
 
   # POST /gifs
@@ -36,7 +34,7 @@ class GifsController < ApplicationController
     respond_to do |format|
       if @gif.save
         format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
-        format.js {}
+        format.js {@gifs = Gif.all.order('created_at DESC')}
       else
         format.js {render :new }
       end
