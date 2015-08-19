@@ -1,6 +1,7 @@
 class GifsController < ApplicationController
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
   # validates_format_of :image_url, :with => %r{\.(gif)$}i, :message => "We only share things in .gif format"
+  before_action :authenticate_user!, except: [:index, :show]
 
 
   # GET /gifs
